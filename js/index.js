@@ -119,7 +119,7 @@ wildButton.textContent = "Change Background Color";
 function toggleColor() {
   if (colorChanged === false) {
     colorChanged = true;
-    body.style.backgroundColor = "red";
+    body.style.backgroundColor = "#BDB76B";
     console.log(colorChanged);
   }
   else {
@@ -131,5 +131,6 @@ function toggleColor() {
 
 const newParagraph = document.createElement("p");
 body.prepend(newParagraph);
-body.firstElementChild.textContent = "I used JS to make this site really ugly"
+body.firstElementChild.textContent = "I used JS to make this site really ugly";
 body.firstElementChild.style.textAlign = "center";
+body.firstElementChild.style.margin = "20px";
