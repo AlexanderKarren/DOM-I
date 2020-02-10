@@ -5,6 +5,10 @@ body {
   flex-direction: column;
 }
 
+button {
+  margin:10px;
+}
+
 .digit {
   display: inline-block;
   font-size: 80px;

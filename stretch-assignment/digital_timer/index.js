@@ -1,20 +1,37 @@
+let firstTime = true;
+const secondTens = document.querySelector("#secondTens");
+const secondOnes = document.querySelector("#secondOnes");
+
 function toggleTimer() {
-    const secondTens = document.querySelector("#secondTens");
-    const secondOnes = document.querySelector("#secondOnes");
-    secondTens.textContent = 0;
-    secondOnes.textContent = 1;
-    setInterval(function() {
-        let toTen = false;
-        if ((secondOnes.textContent < 9) && (secondOnes.textContent > 0)) {
-            secondOnes.textContent++;
+    if (firstTime === true) {
+        secondTens.textContent = 0;
+        secondOnes.textContent = 0;
+    }
+    firstTime = false;
+    document.querySelector("button").setAttribute("disabled", true);
+    let interval = setInterval(function() {
+        if (secondOnes.textContent == 9) {
+            document.querySelectorAll(".digit").forEach(function(element) {
+                element.style.color = "red";
+            });
+            secondTens.textContent++;
+            secondOnes.textContent = 0;
+            document.querySelector("button").removeAttribute("disabled");
+            clearInterval(interval);
         }
         else {
-            secondTens.textContent = 1;
-            secondOnes.textContent = 0;
-            document.querySelectorAll("digit").forEach(function(element) {
-                element.style.color = "red";
-                console.log(element);
+            document.querySelectorAll(".digit").forEach(function(element) {
+                element.style.color = "inherit";
             });
+            secondOnes.textContent++;
         }
-    }, 1000);
+    }, 10);
+}
+
+function resetTimer() {
+    document.querySelector("#secondTens").textContent = "-";
+    document.querySelector("#secondOnes").textContent = "-";
+    document.querySelectorAll(".digit").forEach(function(element) {
+        element.style.color = "inherit";
+    });
 }
