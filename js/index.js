@@ -46,6 +46,21 @@ document.querySelectorAll("a").forEach(function(element, i) {
   element.textContent = siteContent["nav"][`nav-item-${i+1}`];
 });
 
+// Appended / Prepended Nav Links
+const nav = document.querySelector("nav");
+const appendedLink = document.createElement("a");
+const prependedLink = document.createElement("a");
+nav.appendChild(appendedLink);
+nav.prepend(prependedLink);
+
+nav.firstElementChild.textContent = "Fan Art";
+nav.lastElementChild.textContent = "Chinese Take-Out Menu"
+
+document.querySelectorAll("a").forEach(function(element) {
+  element.style.color = "green"; // makes links green
+  element.setAttribute("href", "#");
+})
+
 // CTA Image
 document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
 
