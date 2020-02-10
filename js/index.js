@@ -103,3 +103,33 @@ contactSection.lastElementChild.textContent = siteContent["contact"]["email"];
 
 // Footer
 document.querySelector("footer").firstElementChild.textContent = siteContent["footer"]["copyright"];
+
+// Custom Changes
+let colorChanged = false;
+console.log(colorChanged);
+
+const body = document.querySelector("body");
+body.style.backgroundColor = "#8A2BE2";
+
+const wildButton = document.createElement("button");
+body.prepend(wildButton);
+wildButton.setAttribute("onClick", "toggleColor()");
+wildButton.textContent = "Change Background Color";
+
+function toggleColor() {
+  if (colorChanged === false) {
+    colorChanged = true;
+    body.style.backgroundColor = "red";
+    console.log(colorChanged);
+  }
+  else {
+    colorChanged = false;
+    body.style.backgroundColor = "#8A2BE2";
+    console.log(colorChanged);
+  }
+}
+
+const newParagraph = document.createElement("p");
+body.prepend(newParagraph);
+body.firstElementChild.textContent = "I used JS to make this site really ugly"
+body.firstElementChild.style.textAlign = "center";
