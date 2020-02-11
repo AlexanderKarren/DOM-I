@@ -36,7 +36,7 @@ function toggleTimer() {
     let seconds = setInterval(function() {
         if (secondOnes.textContent == 9) {
             document.querySelectorAll(".digit").forEach(function(element) {
-                element.style.color = "red";
+                element.style.color = "firebrick";
             });
             secondTens.textContent++;
             secondOnes.textContent = 0;
@@ -65,7 +65,7 @@ function toggleTimer() {
             secondOnes.textContent = 0;
             minuteOnes.textContent++;
             document.querySelectorAll(".digit").forEach(function(element) {
-                element.style.color = "red";
+                element.style.color = "firebrick";
             });
             document.querySelector("button").removeAttribute("disabled")
             clearInterval(seconds);
