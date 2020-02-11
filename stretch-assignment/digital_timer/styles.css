@@ -1,12 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald&display=swap');
+/* * {
+  border:1px solid gray;
+} */
+
 body {
   display: flex;
+  font-family:"Open Sans", sans-serif;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+button {
+  margin:10px;
+  background-color:cornflowerblue;
+  border:1px solid lightgray;
+  border-radius:5px;
+  padding:10px 20px;
+  font-size:80%;
+  font-weight: bold;
+}
+
+button:disabled, button:hover {
+  background-color:lightgray;
+}
+
+.digits {
+  font-family:"Oswald", sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .digit {
-  display: inline-block;
+  border:1px solid lightgray;
+  background-color:whitesmoke;
+  display:flex;
+  justify-content:center;
   font-size: 80px;
+  width:50px;
 }
 
 .redDigit {
