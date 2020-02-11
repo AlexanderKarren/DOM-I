@@ -13,6 +13,17 @@ const secondOnes = document.querySelector("#secondOnes");
 const msHundreds = document.querySelector("#msHundreds");
 const msTens = document.querySelector("#msTens");
 
+document.querySelectorAll("button").forEach(function(element, i) {
+    element.addEventListener("click", function() {
+        if (i === 0) {
+            toggleTimer();
+        }
+        else {
+            resetTimer();
+        }
+    });
+});
+
 function toggleTimer() {
     if (firstTime === true) {
         secondTens.textContent = 0;
@@ -31,7 +42,7 @@ function toggleTimer() {
             secondOnes.textContent = 0;
             document.querySelector("button").removeAttribute("disabled");
             clearInterval(seconds);
-            // clearInterval(milliseconds);
+            clearInterval(milliseconds);
         }
         else {
             document.querySelectorAll(".digit").forEach(function(element) {
@@ -58,18 +69,22 @@ function toggleTimer() {
             });
             document.querySelector("button").removeAttribute("disabled")
             clearInterval(seconds);
-            // clearInterval(milliseconds);
+            clearInterval(milliseconds);
         }
-    }, 10);
-    // let milliseconds = setInterval(function() {
-    //     if (msTens.textContent == 9) {
-    //         msHundreds.textContent++;
-    //         msTens.textContent = 0;
-    //     }
-    //     else {
-    //         msTens.textContent++;
-    //     }
-    // }, 0)
+    }, 1000);
+    let milliseconds = setInterval(function() {
+        if (msTens.textContent == 9) {
+            msHundreds.textContent++;
+            msTens.textContent = 0;
+        }
+        else {
+            msTens.textContent++;
+        }
+        if ((msTens.textContent == 9) && (msHundreds.textContent == 9)) {
+            msHundreds.textContent = 0;
+            msTens.textContent = 0;
+        }
+    }, 10)
 }
 
 function resetTimer() {
